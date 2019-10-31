@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Francois+One|Jomolhari|Manjari|Montserrat|Noto+Serif|Poppins&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="./logo.jpg" width="100" height="100" class="d-inline-block align-top" alt="">
+            </a>
+            <div class="title">BreweryDB</div>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            </form>
+        </nav>
+
+        <div class="main-body" :class="{hidden: showModal}">
+            <div class="flip-card" v-for="beer in displayedBeers" v-if="!showModal">
+                <div>
+                    <div class="image">
+                        <a data-fancybox="beer" :href="beer.image_url"><button class="btn btn-light"><img
+                                    :src="beer.image_url" alt="Avatar" style="width:45px;height:160px;"></button></a>
+                    </div>
+                    <div class="description">
+                        <h1>{{ beer.name }}</h1>
+                        <p>{{ beer.abv }}</p>
+                        <p>{{ beer.ibu }}</p>
+
+                        <button class="btn btn-light" @click="selectBeer(beer)">Details</button>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+            </div>
+            <div class="modal-mask" v-if="showModal">
+                <div class="modal-wrapper">
+                    <div class="modal-container">
+
+                        <div class="modal-header">
+                            <slot name="header">
+                                <h1>{{ selectedBeer.name }}</h1>
+                            </slot>
+                        </div>
+
+                        <div class="modal-body">
+                            <slot name="body">
+                                <h2>{{ selectedBeer.description }}</h2>
+                                <div class="detail-box">
+                                    <div class="info-detail">
+                                        <h1>Ingredients</h1>
+                                        <ul>MALTS:</ul>
+                                        <li v-for="malt in selectedBeer.ingredients.malt">{{ malt.name }}</li>
+                                        <ul>HOPS:</ul>
+                                        <li v-for="hop in selectedBeer.ingredients.hops">{{ hop.name }}</li>
+                                        <ul>YEASTS:</ul>
+                                        <li>{{ selectedBeer.ingredients.yeast }}</li>
+                                    </div>
+                                    <div class="image-detail">
+                                        <img :src="selectedBeer.image_url" :alt="selectedBeer.image_url"
+                                            style="height:180px;">
+                                    </div>
+                                </div>
+                            </slot>
+                        </div>
+
+                        <div class="modal-footer">
+                            <slot name="footer">
+                                <button class="btn btn-light" @click="showModal = false">Close</button>
+                            </slot>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pagination">
+            <button class="btn btn-light" type="button" v-if="page != 1" @click="page--">Back</button>
+            <button class="btn btn-light" type="button" v-for="pageNumber in pages.slice(page-1, page+5)"
+                @click="page = pageNumber">{{ pageNumber }}</button>
+            <button class="btn btn-light" type="button" @click="page++" v-if="page < pages.length">Next</button>
+        </div>
+
+        <div class="footer">
+            <div class="card-footer text-muted">
+                2019 BreweryDB | All Rights Reserved
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="scripts/vue.js"></script>
+
+</html>

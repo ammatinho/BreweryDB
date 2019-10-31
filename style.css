@@ -1,0 +1,140 @@
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 300px;
+    perspective: 1000px;
+    /* Remove this if you don't want the 3D effect */
+    display: inline-table;
+    margin: 3%;
+}
+
+.main-body {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 7%;
+    min-height: 86vh;
+}
+
+.title {
+    font-family: 'Alegreya Sans', sans-serif;
+    font-family: 'Francois One', sans-serif;
+    font-family: 'Manjari', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Noto Serif', serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Jomolhari', serif;
+    font-size: 3rem;
+    margin-left: -12%;
+    margin-right: 45%;
+    margin-top: 2%;
+}
+
+.footer {
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Alegreya Sans', sans-serif;
+    font-family: 'Francois One', sans-serif;
+    font-family: 'Manjari', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Noto Serif', serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Jomolhari', serif;
+    font-size: 1rem;
+    font-weight: bold;
+
+}
+
+p {
+    font-family: 'Alegreya Sans', sans-serif;
+    font-family: 'Francois One', sans-serif;
+    font-family: 'Manjari', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Noto Serif', serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Jomolhari', serif;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+h2 {
+    font-family: 'Alegreya Sans', sans-serif;
+    font-family: 'Francois One', sans-serif;
+    font-family: 'Manjari', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Noto Serif', serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Jomolhari', serif;
+    font-size: 1rem;
+    padding-bottom: 2%;
+}
+
+.image {
+    padding-left: 38%;
+    padding-right: 35%;
+    padding-top: 35%;
+    padding-bottom: 5%;
+}
+
+.description {
+    padding: 5%;
+    text-align: center;
+}
+
+.pagination {
+    margin-left: 33%;
+    padding: 5%;
+
+}
+
+.modal-mask {
+    width: 100vw;
+    z-index: 9998;
+    top: 0;
+    right: 0;
+    width: 200%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    display: table;
+    transition: opacity .3s ease;
+    margin: 10%;
+}
+
+.modal-container {
+    margin: 0px auto;
+    padding: 20px 30px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+    transition: all .3s ease;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.modal-body {
+    margin: 15px 0;
+}
+
+.modal-default-button {
+    float: right;
+}
+
+.modal-enter {
+    opacity: 0;
+}
+
+.hidden {
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.image-detail {
+    padding-left: 50%;
+    margin-top: 18%;
+}
+
+.detail-box {
+    display: flex;
+}
