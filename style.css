@@ -36,7 +36,8 @@
     text-align: center;
 }
 
-h1 {
+h1,
+ul {
     font-family: 'Alegreya Sans', sans-serif;
     font-family: 'Francois One', sans-serif;
     font-family: 'Manjari', sans-serif;
@@ -71,6 +72,19 @@ h2 {
     font-family: 'Jomolhari', serif;
     font-size: 1rem;
     padding-bottom: 2%;
+}
+
+li {
+    font-family: 'Alegreya Sans', sans-serif;
+    font-family: 'Francois One', sans-serif;
+    font-family: 'Manjari', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Noto Serif', serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Jomolhari', serif;
+    font-weight: bold;
+    font-size: 0.7rem;
+    margin-top: 5%
 }
 
 .image {
@@ -136,5 +150,60 @@ h2 {
 }
 
 .detail-box {
+    display: flex;
+    margin-left: 4%;
+}
+
+.lds-circle {
+    display: inline-block;
+    transform: translateZ(1px);
+    margin-left: 45%;
+    margin-top: 30%;
+    margin-bottom: 15%;
+}
+
+.lds-circle>div {
+    display: inline-block;
+    width: 51px;
+    height: 51px;
+    margin: 6px;
+    border-radius: 50%;
+    background: black;
+    animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+@keyframes lds-circle {
+
+    0%,
+    100% {
+        animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+    }
+
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    50% {
+        transform: rotateY(1800deg);
+        animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+    }
+
+    100% {
+        transform: rotateY(3600deg);
+    }
+}
+
+.no-results {
+    margin-top: 130%;
+    margin-left: 280%;
+    display: flex;
+
+}
+
+.message {
+    text-align: center;
+}
+
+.imgMessage {
     display: flex;
 }
